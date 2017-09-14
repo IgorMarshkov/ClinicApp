@@ -1,3 +1,7 @@
-<h1>Clinic list</h1>
-
-
+<div class="clinic-list-container">
+  <ul>
+    <li *ngFor="let clinic of clinics">
+      <list-item [clinic]="clinic"></list-item>
+    </li>
+  </ul>
+</div>

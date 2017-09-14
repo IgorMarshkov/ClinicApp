@@ -1,0 +1,16 @@
+.row {
+  margin: 10px;
+  display: flex;
+.col-label {
+  flex: 0 0 20%;
+}
+.col-control {
+  flex: 0 0 40%;
+select, input {
+  width: 90%;
+}
+}
+.col-alert {
+  flex: 0 0 40%;
+}
+}

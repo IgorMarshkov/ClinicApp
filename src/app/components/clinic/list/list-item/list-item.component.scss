@@ -1,2 +1,24 @@
-
-
+.list-item {
+  .list-item-controls {
+    display: flex;
+    justify-content: flex-end;
+    input[type=button] {
+      margin-right: 10px;
+      width: 30px;
+      background-color: transparent;
+      border: none;
+      font-size: 1.2em;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .list-item-content {
+    margin: 5px 0;
+    border: solid 1px #aaa;
+    box-shadow: 3px 3px 2px #ccc;
+    z-index: 1;
+    padding: 10px;
+    min-height: 100px;
+  }
+}

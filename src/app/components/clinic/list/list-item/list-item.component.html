@@ -1,2 +1,9 @@
-<h1>Clinic list item</h1>
-
+<div class="list-item">
+  <div class="list-item-controls">
+    <input type="button" value="&#9998;" (click)="edit()">
+    <input type="button" value="&#10006;" (click)="deleteClinic()">
+  </div>
+  <div class="list-item-content">
+    <app-details [clinic]="clinic"></app-details>
+  </div>
+</div>

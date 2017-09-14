@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {Clinic} from './clinic';
-import {LocalStorageService} from '../../services/localStorageService';
-import {IdGenerator} from '../../services/IdGenerator';
-import {Subject} from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Clinic } from './clinic';
+import { LocalStorageService } from '../../services/localStorageService';
+import { IdGenerator } from '../../services/IdGenerator';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ClinicService {
@@ -75,7 +75,6 @@ export class ClinicService {
       observer.complete();
     });
   }
-
 
   private mapResponseToClinic(resp: any): Clinic[] {
     if (!resp) {
