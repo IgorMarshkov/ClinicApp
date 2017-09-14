@@ -1,0 +1,43 @@
+$header-height: 80px;
+
+header {
+  height: $header-height;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.navigation-bar {
+  display: flex;
+  list-style: none;
+  align-items: stretch;
+  margin: 0;
+  flex-basis: 250px;
+
+  li {
+    line-height: $header-height;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    flex-grow: 1;
+    &:hover {
+      background-color: white;
+    }
+
+    a {
+      padding: 0 1rem;
+      color: #717171;
+      display: block;
+      &:hover {
+        color: #69D9FF;
+      }
+      &.active {
+        font-weight: bold;
+        color: #1095C2;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
