@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ClinicComponent } from './components/clinic/clinic.component';
+
+import { ClinicContainerComponent } from './components/clinic/clinic-container/clinic-container.component';
+
 import { TherapistComponent } from './components/therapist/therapist.component';
 import { PatientComponent } from './components/patient/patient.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+
+import { ClinicModule, routes as clinicRoutes } from './components/clinic/clinic.module';
 
 const routes: Routes = [
   {
@@ -15,9 +19,11 @@ const routes: Routes = [
     'redirectTo': 'clinic',
     'pathMatch': 'full'
   }, {
-    "path": "clinic",
-    "component": ClinicComponent
-  }, {
+    'path': 'clinic',
+    'component': ClinicContainerComponent,
+    'children': clinicRoutes
+  },
+  {
     'path': 'therapist',
     'component': TherapistComponent
   }, {
@@ -29,7 +35,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ClinicComponent,
+    ClinicContainerComponent,
     TherapistComponent,
     PatientComponent,
     HeaderComponent,
@@ -37,6 +43,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ClinicModule,
     RouterModule.forRoot(routes, {useHash: true}),
   ],
   providers: [
