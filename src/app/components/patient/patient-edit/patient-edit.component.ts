@@ -36,7 +36,7 @@ export class PatientEditComponent implements OnInit {
         this.patient = resp;
         this.getClinics();
         this.createForm();
-        this.loadTherapistsForClinic(this.patient.id);
+        this.loadTherapistsForClinic(this.patient.clinicId);
       });
     });
   }
@@ -47,8 +47,8 @@ export class PatientEditComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
       ]),
-      'clinicId': new FormControl(this.patient.id),
-      'therapistId': new FormControl(this.patient.id),
+      'clinicId': new FormControl(this.patient.clinicId),
+      'therapistId': new FormControl(this.patient.therapistId),
     });
     this.patientForm.controls.clinicId.valueChanges.subscribe(data => {
       this.loadTherapistsForClinic(data);
@@ -67,6 +67,7 @@ export class PatientEditComponent implements OnInit {
     this.patientService.updatePatient(changedPatient).subscribe(res => {
       if (res) {
         this.patientService.notifyPatientsChanged(res);
+        this.location.back();
       }
     });
   }

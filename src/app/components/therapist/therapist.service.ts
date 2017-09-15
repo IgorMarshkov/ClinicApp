@@ -16,7 +16,7 @@ export class TherapistService {
   constructor() {
   }
 
-  public notifyTherpaistsChanged(therapist: Therapist) {
+  public notifyTherapistsChanged(therapist: Therapist) {
     this.therapistsChangedSource.next(therapist);
   }
 
@@ -49,7 +49,7 @@ export class TherapistService {
     return Observable.create(observer => {
       const therapists = this.mapResponseToTherapist(this.localStorageService.getTherapists());
       const therapistsForClinic = therapists.filter(el => {
-        return el.id === +clinicId;
+        return el.clinicId === +clinicId;
       });
       observer.next(therapistsForClinic);
       observer.complete();

@@ -62,7 +62,7 @@ export class TherapistEditComponent implements OnInit {
     updatedTherapist.fullName = this.therapistForm.controls.fullName.value;
     this.therapistService.updateTherapist(updatedTherapist).subscribe(res => {
         if (res) {
-          this.therapistService.notifyTherpaistsChanged(res);
+          this.therapistService.notifyTherapistsChanged(res);
           this.location.back();
         }
       }

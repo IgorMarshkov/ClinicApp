@@ -23,7 +23,7 @@ export class ListItemComponent implements OnInit {
   private deleteTherapist(): void {
     this.therapistService.deleteTherapist(this.therapist).subscribe(res => {
         if (res) {
-          this.therapistService.notifyTherpaistsChanged(null);
+          this.therapistService.notifyTherapistsChanged(null);
         }
       }
     );

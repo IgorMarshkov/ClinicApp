@@ -90,7 +90,7 @@ export class PatientService {
     }
     return (<any[]>JSON.parse(resp)).map(el => {
       const patient = new Patient();
-      patient.id = +el.patientId;
+      patient.id = +el.id;
       patient.fullName = el.fullName;
       patient.clinicId = +el.clinicId;
       patient.therapistId = +el.therapistId;
@@ -103,7 +103,7 @@ export class PatientService {
     const therapistsRawData = this.localStorageService.getTherapists();
     const therapist = (<any[]>JSON.parse(therapistsRawData)).map(el => {
       const resTherapist = new Therapist();
-      resTherapist.id = +el.therapistId;
+      resTherapist.id = +el.id;
       resTherapist.clinicId = +el.clinicId;
       resTherapist.fullName = el.fullName;
       return resTherapist;
@@ -114,7 +114,7 @@ export class PatientService {
     const clinicRawData = this.localStorageService.getClinics();
     const clinic = (<any[]>JSON.parse(clinicRawData)).map(el => {
       const resClinic = new Clinic();
-      resClinic.id = +el.clinicId;
+      resClinic.id = +el.id;
       resClinic.title = el.title;
       return resClinic;
     }).find(el => {
@@ -125,11 +125,11 @@ export class PatientService {
     patientDTO.id = +patient.id;
     patientDTO.fullName = patient.fullName;
     if (therapist) {
-      patientDTO.therapistId = therapist.id;
+      patientDTO.therapistId = +therapist.id;
       patientDTO.therapistFullName = therapist.fullName;
     }
     if (clinic) {
-      patientDTO.clinicId = clinic.id;
+      patientDTO.clinicId = +clinic.id;
       patientDTO.clinicTitle = clinic.title;
     }
     return patientDTO;
@@ -137,7 +137,7 @@ export class PatientService {
 
   private mapDTOToPatient(patientDTO: PatientDTO): Patient {
     const patient = new Patient();
-    patient.id = patientDTO.id;
+    patient.id = +patientDTO.id;
     patient.fullName = patientDTO.fullName;
     patient.clinicId = patientDTO.clinicId;
     patient.therapistId = patientDTO.therapistId;

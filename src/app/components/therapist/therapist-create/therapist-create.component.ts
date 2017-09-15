@@ -49,7 +49,7 @@ export class TherapistCreateComponent implements OnInit {
     therapist.clinicId = this.therapistForm.controls.clinicId.value;
     this.therapistService.createTherapist(therapist).subscribe(res => {
         if (res) {
-          this.therapistService.notifyTherpaistsChanged(res);
+          this.therapistService.notifyTherapistsChanged(res);
         }
       }
     );
