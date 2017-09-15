@@ -28,7 +28,9 @@
         </select>
       </div>
     </div>
-    <input type="submit" value="Save" [disabled]="therapistForm.invalid"/>
-    <input type="button" value="Cancel" (click)="cancel()"/>
+    <div class="row">
+      <input type="submit" value="Save" [disabled]="therapistForm.invalid"/>
+      <input type="button" value="Cancel" (click)="cancel()"/>
+    </div>
   </form>
 </div>
