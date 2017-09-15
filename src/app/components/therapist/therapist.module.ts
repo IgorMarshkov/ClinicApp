@@ -8,6 +8,7 @@ import { TherapistCreateComponent } from './therapist-create/therapist-create.co
 import { TherapistEditComponent } from './therapist-edit/therapist-edit.component';
 import { TherapistContainerComponent } from './therapist-container/therapist-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TherapistService } from './therapist.service';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,10 @@ export const routes: Routes = [
     ListComponent,
     DetailsComponent,
     ListItemComponent
+  ],
+  providers: [
+    TherapistService,
   ]
 })
-export class TherapistModule { }
+export class TherapistModule {
+}

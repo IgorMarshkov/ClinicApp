@@ -1,0 +1,45 @@
+<div class="patient-edit-container">
+  <form [formGroup]="patientForm" (ngSubmit)="updatePatient()" novalidate>
+    <div class="row">
+      <div class="col-label">
+        <label for="patient-full-name-{{patient.id}}">Full Name:</label>
+      </div>
+      <div class="col-control">
+        <input id="patient-full-name-{{patient.id}}" formControlName="fullName"/>
+      </div>
+      <div class="col-alert"
+           *ngIf="patientForm.invalid && (patientForm.get('fullName').dirty || patientForm.get('fullName').touched)">
+        <div *ngIf="patientForm.get('fullName').hasError('required')">
+          Patient full name is required.
+        </div>
+        <div *ngIf="patientForm.get('fullName').hasError('minlength')">
+          Patient full name must be at least 3 characters long.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-label">
+        <label for="clinics-{{patient.id}}">Clinics</label>
+      </div>
+      <div class="col-control">
+        <select id="clinics-{{patient.id}}" formControlName="clinicId">
+          <option *ngFor="let clinic of clinics" [value]="clinic.id">{{clinic.title}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row" *ngIf="therapists.length > 0">
+      <div class="col-label">
+        <label for="therapists-{{patient.id}}">Therapists</label>
+      </div>
+      <div class="col-control">
+        <select id="therapists-{{patient.id}}"
+                formControlName="therapistId">
+          <option *ngFor="let therapist of therapists" [value]="therapist.id">{{therapist.fullName}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <input type="submit" value="Save" [disabled]="!patientForm.valid"/>
+    <input type="button" value="Cancel" (click)="cancel()"/>
+  </form>
+</div>

@@ -8,6 +8,7 @@ import { PatientCreateComponent } from './patient-create/patient-create.componen
 import { PatientEditComponent } from './patient-edit/patient-edit.component';
 import { PatientContainerComponent } from './patient-container/patient-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PatientService } from './patient.service';
 
 export const routes: Routes = [
   {
@@ -20,7 +21,7 @@ export const routes: Routes = [
     'component': ListComponent
   }, {
     'path': 'details/:id',
-    'component': DetailsComponent
+    'component': ListComponent
   }, {
     'path': 'details/:id/edit',
     'component': PatientEditComponent,
@@ -45,6 +46,10 @@ export const routes: Routes = [
     ListComponent,
     DetailsComponent,
     ListItemComponent
+  ],
+  providers: [
+    PatientService,
   ]
 })
-export class PatientModule { }
+export class PatientModule {
+}

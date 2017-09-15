@@ -1,0 +1,43 @@
+<div class="patient-create-container">
+  <form [formGroup]="patientForm" (ngSubmit)="createPatient()" novalidate>
+    <div class="row">
+      <div class="col-label">
+        <label for="new-patient-fullName">Full Name:</label>
+      </div>
+      <div class="col-control">
+        <input id="new-patient-fullName" formControlName="fullName" formControlName="fullName"/>
+      </div>
+      <div class="col-alert"
+           *ngIf="patientForm.invalid && (patientForm.get('fullName').dirty || patientForm.get('fullName').touched)">
+        <div *ngIf="patientForm.get('fullName').hasError('required')">
+          Patient full name is required.
+        </div>
+        <div *ngIf="patientForm.get('fullName').hasError('minlength')">
+          Patient full name must be at least 3 characters long.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-label">
+        <label for="new-patient-clinics">Clinics</label>
+      </div>
+      <div class="col-control">
+        <select id="new-patient-clinics" formControlName="clinicId">
+          <option></option>
+          <option *ngFor="let clinic of clinics" [value]="clinic.clinicId">{{clinic.title}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row" [hidden]="!patientForm.get('clinicId').value">
+      <div class="col-label">
+        <label for="new-patient-therapists">Therapists</label>
+      </div>
+      <div class="col-control">
+        <select id="new-patient-therapists" formControlName="therapistId">
+          <option *ngFor="let therapist of therapists" [value]="therapist.therapistId">{{therapist.fullName}}</option>
+        </select>
+      </div>
+    </div>
+    <input type="submit" value="Create patient" [disabled]="patientForm.invalid">
+  </form>
+</div>

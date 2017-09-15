@@ -1,3 +1,10 @@
-<h1>Patient list</h1>
+<div class="patient-list-container">
+  <app-patient-create></app-patient-create>
+  <ul>
+    <li *ngFor="let patient of patients">
+      <list-item [patient]="patient"></list-item>
+    </li>
+  </ul>
+</div>
 
 
