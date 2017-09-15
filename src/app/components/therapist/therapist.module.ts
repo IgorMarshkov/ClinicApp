@@ -5,6 +5,7 @@ import { ListItemComponent } from './list/list-item/list-item.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './list/list-item/details/details.component';
 import { TherapistCreateComponent } from './therapist-create/therapist-create.component';
+import { TherapistEditComponent } from './therapist-edit/therapist-edit.component';
 import { TherapistContainerComponent } from './therapist-container/therapist-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -33,7 +34,8 @@ export const routes: Routes = [
     ListComponent,
     DetailsComponent,
     ListItemComponent,
-    TherapistCreateComponent
+    TherapistCreateComponent,
+    TherapistEditComponent
   ],
   exports: [
     ListComponent,
