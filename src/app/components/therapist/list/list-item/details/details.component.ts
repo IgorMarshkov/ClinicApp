@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TherapistDTO } from '../../../therapistDTO';
 
 @Component({
   selector: 'app-details',
@@ -6,6 +7,9 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  @Input()
+  therapist: TherapistDTO;
+
   ngOnInit() {
   }
 

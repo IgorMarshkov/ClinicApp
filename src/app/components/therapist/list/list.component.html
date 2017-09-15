@@ -1,3 +1,10 @@
-<h1>Therapist list</h1>
+<div class="therapist-list-container">
+  <app-therapist-create></app-therapist-create>
+  <ul>
+    <li *ngFor="let therapist of therapists">
+      <list-item [therapist]="therapist"></list-item>
+    </li>
+  </ul>
+</div>
 
 

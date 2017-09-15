@@ -19,8 +19,8 @@ export const routes: Routes = [
     'path': 'list',
     'component': ListComponent
   }, {
-    'path': 'details/:id',
-    'component': DetailsComponent
+    'path': 'details/:id/edit',
+    'component': TherapistEditComponent
   }
 ];
 

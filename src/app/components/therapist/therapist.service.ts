@@ -112,7 +112,7 @@ export class TherapistService {
     const clinicRawData = this.localStorageService.getClinics();
     const clinic = (<any[]>JSON.parse(clinicRawData)).map(el => {
       const resClinic = new Clinic();
-      resClinic.id = el.clinicId;
+      resClinic.id = el.id;
       resClinic.title = el.title;
       return resClinic;
     }).find(el => {

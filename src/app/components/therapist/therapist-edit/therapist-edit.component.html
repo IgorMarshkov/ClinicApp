@@ -1,0 +1,34 @@
+<div class="therapist-edit-container">
+  <form [formGroup]="therapistForm" (ngSubmit)="updateTherapist()" novalidate>
+    <div class="row">
+      <div class="col-label">
+        <label for="therapist-full-name-{{therapist.id}}">Full Name:</label>
+      </div>
+      <div class="col-control">
+        <input formControlName="fullName"
+               id="therapist-full-name-{{therapist.id}}"/>
+      </div>
+      <div class="col-alert"
+           *ngIf="therapistForm.invalid && (therapistForm.get('fullName').dirty || therapistForm.get('fullName').touched)">
+        <div *ngIf="therapistForm.get('fullName').hasError('required')">
+          Therapist full name is required.
+        </div>
+        <div *ngIf="therapistForm.get('fullName').hasError('minlength')">
+          Therapist full name must be at least 3 characters long.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-label">
+        <label for="clinics-{{therapist.id}}">Clinics</label>
+      </div>
+      <div class="col-control">
+        <select id="clinics-{{therapist.id}}" formControlName="clinicId">
+          <option *ngFor="let clinic of clinics" [value]="clinic.id">{{clinic.title}}</option>
+        </select>
+      </div>
+    </div>
+    <input type="submit" value="Save" [disabled]="therapistForm.invalid"/>
+    <input type="button" value="Cancel" (click)="cancel()"/>
+  </form>
+</div>
