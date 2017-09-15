@@ -1,16 +1,18 @@
 .row {
   margin: 10px;
-  display: flex;
-.col-label {
-  flex: 0 0 20%;
-}
-.col-control {
-  flex: 0 0 40%;
-select, input {
-  width: 90%;
-}
-}
-.col-alert {
-  flex: 0 0 40%;
-}
+
+  .col-label {
+    margin-bottom: 2px;
+    flex: 0 0 20%;
+  }
+  .col-control {
+    margin-bottom: 5px;
+    select, input {
+      width: 40%;
+    }
+  }
+  .col-alert {
+    margin: 5px 2px 5px 2px;
+    color: #ff4c3f;
+  }
 }

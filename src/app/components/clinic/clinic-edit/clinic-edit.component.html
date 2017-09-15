@@ -1,21 +1,23 @@
-<form [formGroup]="clinicForm" (ngSubmit)="updateClinic()" novalidate>
-  <div class="row">
-    <div class="col-label">
-      <label for="patient-full-name-{{clinic.id}}">Title:</label>
-    </div>
-    <div class="col-control">
-      <input id="patient-full-name-{{clinic.id}}" formControlName="title" />
-    </div>
-    <div class="col-alert"
-         *ngIf="clinicForm.invalid && (clinicForm.get('title').dirty || clinicForm.get('title').touched)">
-      <div *ngIf="clinicForm.get('title').hasError('required')">
-        Title is required.
+<div class="clinic-edit-container">
+  <form [formGroup]="clinicForm" (ngSubmit)="updateClinic()" novalidate>
+    <div class="row">
+      <div class="col-label">
+        <label for="patient-full-name-{{clinic.id}}">Title:</label>
       </div>
-      <div *ngIf="clinicForm.get('title').hasError('minlength')">
-        Title must be at least 3 characters long.
+      <div class="col-control">
+        <input id="patient-full-name-{{clinic.id}}" formControlName="title"/>
       </div>
+      <div class="col-alert"
+           *ngIf="clinicForm.invalid && (clinicForm.get('title').dirty || clinicForm.get('title').touched)">
+        <div *ngIf="clinicForm.get('title').hasError('required')">
+          Title is required.
+        </div>
+        <div *ngIf="clinicForm.get('title').hasError('minlength')">
+          Title must be at least 3 characters long.
+        </div>
+      </div>
+      <input type="submit" value="Save" [disabled]="clinicForm.invalid"/>
+      <input type="button" value="Cancel" (click)="cancel()"/>
     </div>
-  </div>
-  <input type="submit" value="Save" [disabled]="clinicForm.invalid" />
-  <input type="button" value="Cancel" (click)="cancel()" />
-</form>
+  </form>
+</div>
