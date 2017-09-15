@@ -10,18 +10,15 @@ import {ClinicEditComponent} from './clinic-edit/clinic-edit.component';
 import {ClinicService} from './clinic.service';
 import {ClinicContainerComponent} from './clinic-container/clinic-container.component';
 
-
 export const routes: Routes = [
   {
     'path': '',
     'redirectTo': 'list',
     'pathMatch': 'full'
-  },
-  {
+  }, {
     'path': 'list',
     'component': ListComponent,
-  },
-  {
+  }, {
     'path': 'details/:id/edit',
     'component': ClinicEditComponent,
   }

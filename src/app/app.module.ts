@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 
 import { ClinicContainerComponent } from './components/clinic/clinic-container/clinic-container.component';
 import { TherapistContainerComponent } from './components/therapist/therapist-container/therapist-container.component';
+import { PatientContainerComponent } from './components/patient/patient-container/patient-container.component';
 
-import { PatientComponent } from './components/patient/patient.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { ClinicModule, routes as clinicRoutes } from './components/clinic/clinic.module';
 import { TherapistModule, routes as therapistRoutes } from './components/therapist/therapist.module';
+import { PatientModule, routes as patientRoutes } from './components/patient/patient.module';
 
 const routes: Routes = [
   {
@@ -23,21 +24,20 @@ const routes: Routes = [
     'path': 'clinic',
     'component': ClinicContainerComponent,
     'children': clinicRoutes
-  },
-  {
+  }, {
     'path': 'therapist',
     'component': TherapistContainerComponent,
     'children': therapistRoutes
   }, {
     'path': 'patient',
-    'component': PatientComponent
+    'component': PatientContainerComponent,
+    'children': patientRoutes
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    PatientComponent,
     HeaderComponent,
     FooterComponent
   ],
@@ -45,6 +45,7 @@ const routes: Routes = [
     BrowserModule,
     ClinicModule,
     TherapistModule,
+    PatientModule,
     RouterModule.forRoot(routes, {useHash: true}),
   ],
   providers: [

@@ -4,8 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListItemComponent } from './list/list-item/list-item.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './list/list-item/details/details.component';
-import { TherapistCreateComponent } from './therapist-create/therapist-create.component';
-import { TherapistContainerComponent } from './therapist-container/therapist-container.component';
+import { PatientCreateComponent } from './patient-create/patient-create.component';
+import { PatientEditComponent } from './patient-edit/patient-edit.component';
+import { PatientContainerComponent } from './patient-container/patient-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 export const routes: Routes = [
@@ -13,12 +14,16 @@ export const routes: Routes = [
     'path': '',
     'redirectTo': 'list',
     'pathMatch': 'full'
-  }, {
+  },
+  {
     'path': 'list',
     'component': ListComponent
   }, {
     'path': 'details/:id',
     'component': DetailsComponent
+  }, {
+    'path': 'details/:id/edit',
+    'component': PatientEditComponent,
   }
 ];
 
@@ -29,11 +34,12 @@ export const routes: Routes = [
     ReactiveFormsModule,
   ],
   declarations: [
-    TherapistContainerComponent,
+    PatientContainerComponent,
     ListComponent,
     DetailsComponent,
     ListItemComponent,
-    TherapistCreateComponent
+    PatientCreateComponent,
+    PatientEditComponent
   ],
   exports: [
     ListComponent,
@@ -41,4 +47,4 @@ export const routes: Routes = [
     ListItemComponent
   ]
 })
-export class TherapistModule { }
+export class PatientModule { }
