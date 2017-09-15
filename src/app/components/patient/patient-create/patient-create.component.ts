@@ -53,6 +53,9 @@ export class PatientCreateComponent implements OnInit {
   loadTherapistsForClinic(clinicId: number): void {
     this.therapistService.getTherapistsForClinic(clinicId).subscribe(resp => {
       this.therapists = resp;
+      if (resp.length < 1) {
+        this.patientForm.controls.therapistId.setValue(null);
+      }
     });
   }
 

@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { PatientService } from '../patient.service';
 import { ClinicService } from '../../clinic/clinic.service';
 import { TherapistService } from '../../therapist/therapist.service';
-import { PatientDTO } from '../PatientDTO';
+import { PatientDTO } from '../patientDTO';
 import { Therapist } from '../../therapist/therapist';
 import { Clinic } from '../../clinic/clinic';
 import { ActivatedRoute } from '@angular/router';

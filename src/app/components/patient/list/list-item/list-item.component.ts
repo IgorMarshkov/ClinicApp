@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PatientService } from '../../patient.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PatientDTO } from '../../PatientDTO';
+import { PatientDTO } from '../../patientDTO';
 import { Clinic } from '../../../clinic/clinic';
 import { Therapist } from '../../../therapist/therapist';
 

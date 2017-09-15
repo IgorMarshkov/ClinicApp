@@ -4,7 +4,7 @@ import { LocalStorageService } from '../../services/localStorageService';
 import { IdGenerator } from '../../services/IdGenerator';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import { PatientDTO } from './PatientDTO';
+import { PatientDTO } from './patientDTO';
 import { Therapist } from '../therapist/therapist';
 import { Clinic } from '../clinic/clinic';
 
@@ -125,11 +125,11 @@ export class PatientService {
     patientDTO.id = +patient.id;
     patientDTO.fullName = patient.fullName;
     if (therapist) {
-      patientDTO.therapistId = +therapist.id;
+      patientDTO.therapistId = therapist.id;
       patientDTO.therapistFullName = therapist.fullName;
     }
     if (clinic) {
-      patientDTO.clinicId = +clinic.id;
+      patientDTO.clinicId = clinic.id;
       patientDTO.clinicTitle = clinic.title;
     }
     return patientDTO;
@@ -137,7 +137,7 @@ export class PatientService {
 
   private mapDTOToPatient(patientDTO: PatientDTO): Patient {
     const patient = new Patient();
-    patient.id = +patientDTO.id;
+    patient.id = patientDTO.id;
     patient.fullName = patientDTO.fullName;
     patient.clinicId = patientDTO.clinicId;
     patient.therapistId = patientDTO.therapistId;
